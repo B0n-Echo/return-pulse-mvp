@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f6f7f9;
+  color: #1c2635;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 16px;
+}
+
+h1 {
+  margin: 0 0 8px;
+}
+
+.lede {
+  margin: 0 0 24px;
+  color: #5a6577;
+}
+
+.status {
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #e8f6ec;
+  border: 1px solid #bfe2ca;
+  font-variant-numeric: tabular-nums;
+}
+
+.status.error {
+  background: #fdecef;
+  border-color: #f2b8c4;
+  color: #9b1c38;
+}
