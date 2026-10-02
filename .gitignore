@@ -1,0 +1,19 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+
+# Generated data (rebuild with: python3 data/generate_data.py)
+data/csv/
+
+# Internal notes and AI-assistant files (not part of the deliverable)
+docs/chunks/
+CLAUDE.md
+AGENTS.md
+.claude/
