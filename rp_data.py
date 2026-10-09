@@ -38,3 +38,33 @@ def get_counts() -> dict:
         cur.execute("SELECT count(*) FROM classified_returns")
         classified = cur.fetchone()[0]
     return {"returns": total, "other": other, "classified": classified}
+
+
+def get_eval_sample(n: int = 200) -> list[dict]:
+    """Fetch "Other" returns together with their correct answer, for testing.
+
+    The same n comments come back on every run (sorted by a scrambled
+    return ID), so results can be compared after the prompt changes.
+    The correct answer is only for scoring. Never send it to a model.
+
+    Args:
+        n: how many comments to fetch.
+
+    Returns:
+        A list of dicts: return_id, other_text, true_issue,
+        true_secondary_issue, is_mixed.
+    """
+    with get_conn() as conn, conn.cursor(row_factory=psycopg.rows.dict_row) as cur:
+        cur.execute(
+            """
+            SELECT r.return_id, r.other_text,
+                   e.true_issue, e.true_secondary_issue, e.is_mixed
+            FROM returns r
+            JOIN eval_return_labels e USING (return_id)
+            WHERE r.reason_dropdown = 'Other'
+            ORDER BY md5(r.return_id)
+            LIMIT %s
+            """,
+            (n,),
+        )
+        return cur.fetchall()

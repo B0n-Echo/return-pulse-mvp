@@ -1,0 +1,3254 @@
+{
+  "date": "2026-10-09",
+  "model": "openai/gpt-4o-mini",
+  "n": 200,
+  "accuracy": 0.945,
+  "wrongly_unclear": 0.02976190476190476,
+  "failed": 0,
+  "mixed_accuracy": 1.0,
+  "per_issue": {
+    "changed_mind": {
+      "right": 39,
+      "total": 45
+    },
+    "delivery_late": {
+      "right": 24,
+      "total": 24
+    },
+    "unclear": {
+      "right": 30,
+      "total": 32
+    },
+    "too_large": {
+      "right": 19,
+      "total": 19
+    },
+    "too_small": {
+      "right": 30,
+      "total": 30
+    },
+    "damaged": {
+      "right": 10,
+      "total": 10
+    },
+    "quality": {
+      "right": 12,
+      "total": 12
+    },
+    "colour_mismatch": {
+      "right": 19,
+      "total": 22
+    },
+    "wrong_item": {
+      "right": 6,
+      "total": 6
+    }
+  },
+  "tokens_in": 131470,
+  "tokens_out": 4643,
+  "cost_usd": 0.0225063,
+  "cost_per_week_inr": 64.833448284,
+  "verdict": "PASS",
+  "results": [
+    {
+      "return_id": "RT000515",
+      "other_text": "sir अच्छा नहीं लगा 🙏",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT004635",
+      "other_text": "sir gift tha, unko pasand nahi aaya jaldi pickup karo",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 663,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004267",
+      "other_text": "bhaiya delivery me 12 din lag gaye 🙏",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "delivery me 12 din lag gaye",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002716",
+      "other_text": "mam fnuction cancel ho gaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.8,
+      "evidence_phrase": "function cancel ho gaya",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT002815",
+      "other_text": "... 🙏",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 651,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003585",
+      "other_text": "late delivery, mehndi ke bad aaya 🙏",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "late delivery, mehndi ke bad aaya",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 28
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004728",
+      "other_text": "hello, delivery me 12 din lag gaye exchange nahi chahiye",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "delivery me 12 din lag gaye",
+      "tokens": {
+        "input_tokens": 663,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001811",
+      "other_text": "bada hai and colour bhi photo jaisa nahi",
+      "true_issue": "too_large",
+      "true_secondary_issue": "colour_mismatch",
+      "is_mixed": true,
+      "issue_type": "too_large",
+      "confidence": 0.8,
+      "evidence_phrase": "bada hai",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006442",
+      "other_text": "mam too loose at waist very disappointed",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "too loose at waist",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001358",
+      "other_text": "acha nahi laga jaldi pickup karo",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "acha nahi laga",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005735",
+      "other_text": "hi bacchek e liye bahut bada hai very disappointed",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut bada hai",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006047",
+      "other_text": "SIR AB ZARURAT NAHI HAI JALDI PICKUP KARO",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "ab zarurat nahi",
+      "tokens": {
+        "input_tokens": 666,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001286",
+      "other_text": "AB ZARURAT NAHI HAI",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "AB ZARURAT NAHI HAI",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 28
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005529",
+      "other_text": "bada hai and colour bhi photo jaisa nahi",
+      "true_issue": "too_large",
+      "true_secondary_issue": "colour_mismatch",
+      "is_mixed": true,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "bada hai",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001214",
+      "other_text": "mam beti ke liye liya tha chhota pad gaya refund chahiye",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "chhota pad gaya",
+      "tokens": {
+        "input_tokens": 666,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004780",
+      "other_text": "hole hai sleeve pe refund chahiye",
+      "true_issue": "damaged",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "damaged",
+      "confidence": 1.0,
+      "evidence_phrase": "hole hai sleeve pe",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004352",
+      "other_text": "hello, pasand nahi aaya pls return",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006398",
+      "other_text": "HELLO, REUTRN VERY DISAPPOINTED",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002255",
+      "other_text": ".",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 649,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002472",
+      "other_text": "bacche k eliye bahut bada hai pls return",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut bada hai",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002664",
+      "other_text": "pls pasand nahi aaa",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "pasand nahi aaa",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000922",
+      "other_text": "mam dusri jagah sasta mil gaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "dusri jagah sasta mil gaya",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000510",
+      "other_text": "pasand nahi aaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001147",
+      "other_text": "sir mind change hogaya very disappointed",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "mind change hogaya",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001925",
+      "other_text": "hi no 🙏",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003703",
+      "other_text": "PASAND NAHI AAAY REFUND CHAHIYE",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001640",
+      "other_text": "size small aaya, mera regular m h pls return",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "size small aaya",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001212",
+      "other_text": "pls sleeves tght hai arms me exchange nahi chahiye",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "sleeves tght hai arms me",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 26
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001357",
+      "other_text": "HI TOO SMALL, CHEST PE FIT NAHI HUA REFUND CHAHIYE",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "TOO SMALL, CHEST PE FIT NAHI HUA",
+      "tokens": {
+        "input_tokens": 666,
+        "output_tokens": 30
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000572",
+      "other_text": "mam bahut late aaya, function nikal gaya very disappointed",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut late aaya",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004271",
+      "other_text": "mam gift tha, unko pasand nahi aya exchange nahi chahiye",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "pasand nahi aya",
+      "tokens": {
+        "input_tokens": 663,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006200",
+      "other_text": "hello, acha nahi laga",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.7,
+      "evidence_phrase": "acha nahi laga",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001815",
+      "other_text": "beti ke liye liya tha chhota pad gaya",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "chhota pad gaya",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002116",
+      "other_text": "see through hai kadpa refund chahiye",
+      "true_issue": "quality",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "quality",
+      "confidence": 0.9,
+      "evidence_phrase": "see through hai kadpa",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004661",
+      "other_text": "pls not as exppected jaldi pickup karo",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004681",
+      "other_text": "NOT AS EXPECED PLS RETURN",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001236",
+      "other_text": "fabric achha nahi, fitting bhi tight",
+      "true_issue": "quality",
+      "true_secondary_issue": "too_small",
+      "is_mixed": true,
+      "issue_type": "quality",
+      "confidence": 0.8,
+      "evidence_phrase": "fabric achha nahi",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001329",
+      "other_text": "OK 🙏",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 651,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002780",
+      "other_text": "mam stitching kharab hai, dhaage nikal rahe 🙏",
+      "true_issue": "quality",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "quality",
+      "confidence": 0.9,
+      "evidence_phrase": "stitching kharab hai, dhaage nikal rahe",
+      "tokens": {
+        "input_tokens": 662,
+        "output_tokens": 30
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006192",
+      "other_text": "size bada hai pls return",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "size bada hai pls return",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004284",
+      "other_text": "bhaiya gift tha, unko pasand nahi aaya jaldi pickup karo",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 665,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004351",
+      "other_text": "photo me maroon dikha, aaya brown very disappointed",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.9,
+      "evidence_phrase": "photo me maroon dikha, aaya brown",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 29
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002089",
+      "other_text": "colour fade sa hai photo jaisa nahi",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.9,
+      "evidence_phrase": "colour fade sa hai photo jaisa nahi",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002606",
+      "other_text": "rang bilkul alag hai",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 1.0,
+      "evidence_phrase": "rang bilkul alag hai",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001501",
+      "other_text": "size chota hai aur kapda bhi patla",
+      "true_issue": "too_small",
+      "true_secondary_issue": "quality",
+      "is_mixed": true,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "size chota hai",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001165",
+      "other_text": "hello, dont need it anymore",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "dont need it anymore",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005984",
+      "other_text": "photo me maroon dikha, aaya brown pls return",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.9,
+      "evidence_phrase": "photo me maroon dikha, aaya brown",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 29
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000545",
+      "other_text": "कपड़ा बहुत पतला है !!",
+      "true_issue": "quality",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "quality",
+      "confidence": 0.9,
+      "evidence_phrase": "कपड़ा बहुत पतला है !!",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006241",
+      "other_text": "sir अच्छा नहीं लगा 🙏",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT005770",
+      "other_text": "bahut late aaya, function nikal gaya 🙏",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 1.0,
+      "evidence_phrase": "bahut late aaya",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003830",
+      "other_text": "BHAIYA COLOUR MISMATCH PLS RETURN",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 1.0,
+      "evidence_phrase": "COLOUR MISMATCH",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001848",
+      "other_text": "fabric achha nahi, fitting bhi tight",
+      "true_issue": "quality",
+      "true_secondary_issue": "too_small",
+      "is_mixed": true,
+      "issue_type": "quality",
+      "confidence": 0.8,
+      "evidence_phrase": "fabric achha nahi",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004304",
+      "other_text": "size chota hai aur kapda bhi patla",
+      "true_issue": "too_small",
+      "true_secondary_issue": "quality",
+      "is_mixed": true,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "size chota hai",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005751",
+      "other_text": "ab zarurat nahih ai",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "ab zarurat nahih ai",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004118",
+      "other_text": "hi bekar !!",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000966",
+      "other_text": "hello, chhota aa gaya, size chart galat hai !!",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "chhota aa gaya",
+      "tokens": {
+        "input_tokens": 662,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000648",
+      "other_text": "dusri jagah sasta mil gaya 🙏",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "dusri jagah sasta mil gaya",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003661",
+      "other_text": "function cncel ho gaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT000097",
+      "other_text": "delivery me 12 din lag gaye exchange nahi chahiye",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "delivery me 12 din lag gaye",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001103",
+      "other_text": "fabric achha nahi, fitting bhi tight",
+      "true_issue": "quality",
+      "true_secondary_issue": "too_small",
+      "is_mixed": true,
+      "issue_type": "quality",
+      "confidence": 0.8,
+      "evidence_phrase": "fabric achha nahi",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003788",
+      "other_text": "hello, smaller than usual size",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "smaller than usual size",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000140",
+      "other_text": "bhaiya theekn ahi hai exchange nahi chahiye",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "theekn ahi hai exchange nahi chahiye",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 29
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT003224",
+      "other_text": "hi packet khula tha aur kapde pe daag hai",
+      "true_issue": "damaged",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "damaged",
+      "confidence": 1.0,
+      "evidence_phrase": "aur kapde pe daag hai",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005135",
+      "other_text": "LENGT BAHUT ZYADA HAI EXCHANGE NAHI CHAHIYE",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "LENGT BAHUT ZYADA HAI",
+      "tokens": {
+        "input_tokens": 667,
+        "output_tokens": 29
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003214",
+      "other_text": "hi no pls return",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001725",
+      "other_text": "size chota hai aur kapda bhi patla",
+      "true_issue": "too_small",
+      "true_secondary_issue": "quality",
+      "is_mixed": true,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "size chota hai",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006219",
+      "other_text": "bahut loose hai",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut loose hai",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005162",
+      "other_text": "bhaiya wrong size bheja, M order kiya tha XL aaya",
+      "true_issue": "wrong_item",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "wrong_item",
+      "confidence": 0.9,
+      "evidence_phrase": "wrong size bheja, M order kiya tha XL aaya",
+      "tokens": {
+        "input_tokens": 664,
+        "output_tokens": 31
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003261",
+      "other_text": "hello, ordered L but feels like S 🙏",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "feels like S",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005767",
+      "other_text": "hello, size M bahut tight hai, L lena padega",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "size M bahut tight hai",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003802",
+      "other_text": "bhaiya dusri jagah sasta mil gaya very disappointed",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.8,
+      "evidence_phrase": "dusri jagah sasta mil gaya",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001005",
+      "other_text": "sir size bada hai jaldi pickup karo",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "size bada hai",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004578",
+      "other_text": "sir length bahut zyada hai",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "length bahut zyada hai",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006122",
+      "other_text": "bada hai and colour bhi photo jaisa nahi",
+      "true_issue": "too_large",
+      "true_secondary_issue": "colour_mismatch",
+      "is_mixed": true,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "bada hai",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001977",
+      "other_text": "bada hai and colour bhi photo jaisa nahi",
+      "true_issue": "too_large",
+      "true_secondary_issue": "colour_mismatch",
+      "is_mixed": true,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "bada hai",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002852",
+      "other_text": "bhaiya late delivery, mehndi ke baad aaya",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 1.0,
+      "evidence_phrase": "late delivery",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005141",
+      "other_text": "mam बहुत टाइट है 🙏",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "बहुत टाइट है",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002319",
+      "other_text": "BHAIYA SAME AS BEFORE",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004474",
+      "other_text": "mam issue hai 🙏",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001414",
+      "other_text": "hi colour alag hai photo se",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.9,
+      "evidence_phrase": "colour alag hai photo se",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003715",
+      "other_text": "quality bilkul bekar very disappointed",
+      "true_issue": "quality",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "quality",
+      "confidence": 0.9,
+      "evidence_phrase": "quality bilkul bekar",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003954",
+      "other_text": "hi colouralag hai photo se",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.9,
+      "evidence_phrase": "colouralag hai photo se",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000682",
+      "other_text": "hello, pls retuurn",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001083",
+      "other_text": "fitting bahut tight hai yaar 🙏",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "fitting bahut tight hai yaar",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 26
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004256",
+      "other_text": "hi mind change ho gaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "mind change ho gaya",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004608",
+      "other_text": "bhaiya bacche ke liye bahut bada hai !!",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut bada hai",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001886",
+      "other_text": "mam dont need it anymore exchange nahi chahiye",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "dont need it anymore",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006489",
+      "other_text": "hi delivery me 12 din lag gaye jaldi pickup karo",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "delivery me 12 din lag gaye",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006378",
+      "other_text": "अच्छा नहीं लगा",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "अच्छा नहीं लगा",
+      "tokens": {
+        "input_tokens": 651,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000262",
+      "other_text": "sir size M bahut tight hai, L lena padega refund chahiye",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "size M bahut tight hai",
+      "tokens": {
+        "input_tokens": 664,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001047",
+      "other_text": "dusri jagah sasta mil gaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "dusri jagah sasta mil gaya",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002156",
+      "other_text": "late aaya aur packet bhi phata hua",
+      "true_issue": "damaged",
+      "true_secondary_issue": "delivery_late",
+      "is_mixed": true,
+      "issue_type": "damaged",
+      "confidence": 0.9,
+      "evidence_phrase": "packet bhi phata hua",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006293",
+      "other_text": "bhaiya colour mismatch !!",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 1.0,
+      "evidence_phrase": "colour mismatch",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005158",
+      "other_text": "hi mind change ho gaya exchange nahi chahiye",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "mind change ho gaya",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000090",
+      "other_text": "bhaiya hole hai sleeve pe 🙏",
+      "true_issue": "damaged",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "damaged",
+      "confidence": 1.0,
+      "evidence_phrase": "hole hai sleeve pe",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006538",
+      "other_text": "dont need it anymore exchange nahi chahiye",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "dont need it anymore",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005445",
+      "other_text": "wrong size bheja,  order kiya tha xl aaya 🙏",
+      "true_issue": "wrong_item",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "wrong_item",
+      "confidence": 0.9,
+      "evidence_phrase": "wrong size bheja, order kiya tha xl aaya",
+      "tokens": {
+        "input_tokens": 663,
+        "output_tokens": 30
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000204",
+      "other_text": "thee nahi hai very disappointed",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004156",
+      "other_text": "bada hai and colour bhi photo jaisa nahi",
+      "true_issue": "too_large",
+      "true_secondary_issue": "colour_mismatch",
+      "is_mixed": true,
+      "issue_type": "too_large",
+      "confidence": 0.8,
+      "evidence_phrase": "bada hai",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006237",
+      "other_text": "YE WALA SHADE NAHI THA WEBSITE PE",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.9,
+      "evidence_phrase": "YE WALA SHADE NAHI THA WEBSITE PE",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 30
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002185",
+      "other_text": "रंग फोटो से अलग है 🙏",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 1.0,
+      "evidence_phrase": "रंग फोटो से अलग है",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001719",
+      "other_text": "donnt need it anymore !!",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "donnt need it anymore !!",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003232",
+      "other_text": "pls return 🙏",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003342",
+      "other_text": "bhaiya dont need it anymore 🙏",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "dont need it anymore",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000444",
+      "other_text": "bada hai and colour bhi photo jaisa nahi",
+      "true_issue": "too_large",
+      "true_secondary_issue": "colour_mismatch",
+      "is_mixed": true,
+      "issue_type": "too_large",
+      "confidence": 0.8,
+      "evidence_phrase": "bada hai",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004294",
+      "other_text": "rang bilkul alag hai",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 1.0,
+      "evidence_phrase": "rang bilkul alag hai",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003021",
+      "other_text": "hello, same as before 🙏",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004797",
+      "other_text": "pls bekar jaldi pickup karo",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005801",
+      "other_text": "bhaiya delivery me 12 din lag gaye",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "delivery me 12 din lag gaye",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003169",
+      "other_text": "bhaiya pink mangaya tha peach aaya refund chahiye",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "wrong_item",
+      "confidence": 1.0,
+      "evidence_phrase": "pink mangaya tha peach aaya",
+      "tokens": {
+        "input_tokens": 662,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT000131",
+      "other_text": "XL bhi tight hai kya size h ye",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "XL bhi tight hai",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006243",
+      "other_text": "bhaiya order bahut der se mila very disappointed",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut der se mila",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001932",
+      "other_text": "hello, same as before exchange nahi chahiye",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "same as before exchange nahi chahiye",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT005306",
+      "other_text": "hello, color is different from image",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.9,
+      "evidence_phrase": "color is different from image",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004712",
+      "other_text": "hello, order bahut der se mila !!",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut der se mila",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005864",
+      "other_text": "bhaiya ... pls return",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000594",
+      "other_text": "galat product aaya 🙏",
+      "true_issue": "wrong_item",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "wrong_item",
+      "confidence": 1.0,
+      "evidence_phrase": "galat product aaya",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005476",
+      "other_text": "hello, late delivery, mehndi ke baad aaya 🙏",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 1.0,
+      "evidence_phrase": "late delivery",
+      "tokens": {
+        "input_tokens": 662,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005381",
+      "other_text": "ab zaurat nahi hai jaldi pickup karo",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "ab zarurat nahi hai",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000915",
+      "other_text": "BHAIYA DELIVERY ME 12 DIN LAG GAYE VERY DISAPPOINTED",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "DELIVERY ME 12 DIN LAG GAYE",
+      "tokens": {
+        "input_tokens": 667,
+        "output_tokens": 30
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002696",
+      "other_text": "mam chhota aa gaya, size chart galat hai exchange nahi chahiye",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "chhota aa gaya",
+      "tokens": {
+        "input_tokens": 665,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001889",
+      "other_text": "colour alag hai aur quality bhi average",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "quality",
+      "is_mixed": true,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.8,
+      "evidence_phrase": "colour alag hai",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000860",
+      "other_text": "pls bacche ke liye bauht bada hai !!",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "bauht bada hai",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002725",
+      "other_text": "bahut late aya, function nikal gaya pls return",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 1.0,
+      "evidence_phrase": "bahut late aya",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003640",
+      "other_text": "mam material not as descrbied, ye cotton nahi lagta",
+      "true_issue": "quality",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "quality",
+      "confidence": 0.9,
+      "evidence_phrase": "mam material not as descrbied, ye cotton nahi lagta",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 29
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005161",
+      "other_text": "mam dont need it anymore very disappointed",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.8,
+      "evidence_phrase": "dont need it anymore",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001561",
+      "other_text": "SIZE CHART PE 38 LIKHA THA BUT 36 JAISA HAI",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "SIZE CHART PE 38 LIKHA THA BUT 36 JAISA HAI",
+      "tokens": {
+        "input_tokens": 666,
+        "output_tokens": 36
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005604",
+      "other_text": "MAM GALAT PRODUUCT AAYA !!",
+      "true_issue": "wrong_item",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "wrong_item",
+      "confidence": 1.0,
+      "evidence_phrase": "GALAT PRODUUCT AAYA",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005591",
+      "other_text": "photo me maroon dikha, aaya brown",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 1.0,
+      "evidence_phrase": "photo me maroon dikha, aaya brown",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 29
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000181",
+      "other_text": "mam अच्छा नहीं लगा very disappointed",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT006110",
+      "other_text": "mam colour mismatch",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 1.0,
+      "evidence_phrase": "colour mismatch",
+      "tokens": {
+        "input_tokens": 651,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002235",
+      "other_text": "very thin cloth !!",
+      "true_issue": "quality",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "quality",
+      "confidence": 0.9,
+      "evidence_phrase": "very thin cloth !!",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005922",
+      "other_text": "pls time pe nahi aaya to ab kya krau",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "time pe nahi aaya",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005104",
+      "other_text": "-",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 649,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004112",
+      "other_text": "hello, dont ned it anymore",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "dont ned it anymore",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003750",
+      "other_text": "SIR DONT NEED IT ANYMORE 🙏",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "DONT NEED IT ANYMORE",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003627",
+      "other_text": "pls sme as before",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004538",
+      "other_text": "bhaiya pls reutrn very disappointed",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001806",
+      "other_text": "bhaiya mummy ko pasand nahi aaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004188",
+      "other_text": "bhaiya ... very disappointed",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003119",
+      "other_text": "colour alag hai aur quality bhi average",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "quality",
+      "is_mixed": true,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.8,
+      "evidence_phrase": "colour alag hai",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003541",
+      "other_text": "fabric achha nahi, fitting bhi tight",
+      "true_issue": "quality",
+      "true_secondary_issue": "too_small",
+      "is_mixed": true,
+      "issue_type": "quality",
+      "confidence": 0.8,
+      "evidence_phrase": "fabric achha nahi",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002399",
+      "other_text": "order bahut der se mila refund chahiye",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut der se mila",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005198",
+      "other_text": "ordered L but feels like S exchange nahi chahiye",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "feels like S",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001757",
+      "other_text": "mummy ko pasand nahi aaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002184",
+      "other_text": "sir dusri jagah sasta mil gaya very disappointed",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.8,
+      "evidence_phrase": "dusri jagah sasta mil gaya",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005723",
+      "other_text": "gift tha, unko pasad nahi aaya pls return",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002349",
+      "other_text": "not good refund chahiye",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000759",
+      "other_text": "sir color is diffreent from image pls return",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.9,
+      "evidence_phrase": "color is diffreent from image",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 26
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004230",
+      "other_text": "mam size bada hai jaldi pickup karo",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "size bada hai",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003059",
+      "other_text": "chhota aa gaya, siez chart galat hai 🙏",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "chhota aa gaya",
+      "tokens": {
+        "input_tokens": 662,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005909",
+      "other_text": "pls chhota aa gaya, size chart galat hai",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "chhota aa gaya",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002577",
+      "other_text": "hi rang bilkul alag hai pls return",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 0.9,
+      "evidence_phrase": "rang bilkul alag hai",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004059",
+      "other_text": "wrong item received 🙏",
+      "true_issue": "wrong_item",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "wrong_item",
+      "confidence": 1.0,
+      "evidence_phrase": "wrong item received 🙏",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003926",
+      "other_text": "phata hua aaya very disappointed",
+      "true_issue": "damaged",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "damaged",
+      "confidence": 1.0,
+      "evidence_phrase": "phata hua aaya",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004696",
+      "other_text": "dusri jagah sasta mil gaya 🙏",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "dusri jagah sasta mil gaya",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004286",
+      "other_text": "mam colour fade sa hai photo jaisa nahi !!",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "quality",
+      "confidence": 0.9,
+      "evidence_phrase": "colour fade sa hai photo jaisa nahi !!",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 26
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT004738",
+      "other_text": "hello, gift tha, unko pasand nahi aaya 🙏",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 662,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004622",
+      "other_text": "mam order bahut ders e mila very disappointed",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut ders e mila",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006392",
+      "other_text": "sir button tootta hua tha 🙏",
+      "true_issue": "damaged",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "damaged",
+      "confidence": 1.0,
+      "evidence_phrase": "button tootta hua tha",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004579",
+      "other_text": "bhaiya fitting bahut tight hai yaar",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "fitting bahut tight hai",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005921",
+      "other_text": "sir gift tha, unko pasand nahi aaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 0.9,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004544",
+      "other_text": "hello, colour fade sa hai photo jaisa nahi very disappointed",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "quality",
+      "confidence": 0.9,
+      "evidence_phrase": "colour fade sa hai photo jaisa nahi",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT003118",
+      "other_text": "bhaiya silai khuli hui thi aate hi",
+      "true_issue": "damaged",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "damaged",
+      "confidence": 0.9,
+      "evidence_phrase": "silai khuli hui thi aate hi",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005320",
+      "other_text": "mam ok pls return",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001978",
+      "other_text": "COLOUR MISMATCH JALDI PICKUP KARO",
+      "true_issue": "colour_mismatch",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "colour_mismatch",
+      "confidence": 1.0,
+      "evidence_phrase": "COLOUR MISMATCH",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005477",
+      "other_text": "bhaiya delivery me 12 din lag gaye 🙏",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "delivery me 12 din lag gaye",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 27
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005611",
+      "other_text": "bhaiya time pe nahi aaya to ab kya karu 🙏",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "time pe nahi aaya",
+      "tokens": {
+        "input_tokens": 663,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000848",
+      "other_text": "pls theek nahi hi 🙏",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002950",
+      "other_text": "mam mummy ko pasand nahi aaya",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006251",
+      "other_text": "hello, xl bhi tight hai kya size h ye very disappointed",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "xl bhi tight hai",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001766",
+      "other_text": "pls ab zarurat nahi hai",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "ab zarurat nahi hai",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005999",
+      "other_text": "sir same as before",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006041",
+      "other_text": "pls chhota aa gaya, size chart galat hai exchange nahi chahiye",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "chhota aa gaya",
+      "tokens": {
+        "input_tokens": 665,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003190",
+      "other_text": "loose fitting, mere size ka nahi lagta very disappointed",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "loose fitting, mere size ka nahi lagta",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 28
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002270",
+      "other_text": "HELLO, OK REFUND CHAHIYE",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004943",
+      "other_text": "Size small aaya, mera regular M h 🙏",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "Size small aaya",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002976",
+      "other_text": "hello, not as expected !!",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.5,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT006563",
+      "other_text": "BHAIYA 😞 !!",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000278",
+      "other_text": "mam no pls return",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 652,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002268",
+      "other_text": "stian mila delivery pe !!",
+      "true_issue": "damaged",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "damaged",
+      "confidence": 0.9,
+      "evidence_phrase": "stian mila delivery pe !!",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001361",
+      "other_text": "sir too loose at waist !!",
+      "true_issue": "too_large",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_large",
+      "confidence": 0.9,
+      "evidence_phrase": "too loose at waist",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000139",
+      "other_text": "SIZE M BAHUT TIGHT HAI, L LENA PADEGA VERY DISAPPOINTED",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "BAHUT TIGHT HAI",
+      "tokens": {
+        "input_tokens": 669,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003600",
+      "other_text": "late delivery, mehndi ke baad aaya refund chahiye",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "late delivery",
+      "tokens": {
+        "input_tokens": 662,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004890",
+      "other_text": "hello, smaller than usual size 🙏",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "smaller than usual size",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003441",
+      "other_text": "bahut late aya, function nikal gaya pls return",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 1.0,
+      "evidence_phrase": "bahut late aya",
+      "tokens": {
+        "input_tokens": 659,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT002872",
+      "other_text": "function cancel ho gaya 🙏",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.1,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": false
+    },
+    {
+      "return_id": "RT006384",
+      "other_text": "fabric achha nahi, fitting bhi tight",
+      "true_issue": "quality",
+      "true_secondary_issue": "too_small",
+      "is_mixed": true,
+      "issue_type": "quality",
+      "confidence": 0.8,
+      "evidence_phrase": "fabric achha nahi",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001078",
+      "other_text": "pls late delivery, mehndi ke baad aaya refund chahiye",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "late delivery",
+      "tokens": {
+        "input_tokens": 663,
+        "output_tokens": 21
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004878",
+      "other_text": "late dellivery, mehndi ke baad aaya !!",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "late dellivery, mehndi ke baad aaya !!",
+      "tokens": {
+        "input_tokens": 660,
+        "output_tokens": 31
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000232",
+      "other_text": "wrong item received very disappointed",
+      "true_issue": "wrong_item",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "wrong_item",
+      "confidence": 0.9,
+      "evidence_phrase": "wrong item received very disappointed",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT000665",
+      "other_text": "late aaya aur packet bhi phata hua",
+      "true_issue": "damaged",
+      "true_secondary_issue": "delivery_late",
+      "is_mixed": true,
+      "issue_type": "damaged",
+      "confidence": 0.9,
+      "evidence_phrase": "packet bhi phata hua",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004614",
+      "other_text": "mam oredr bahut der se mila",
+      "true_issue": "delivery_late",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "delivery_late",
+      "confidence": 0.9,
+      "evidence_phrase": "bahut der se mila",
+      "tokens": {
+        "input_tokens": 656,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004087",
+      "other_text": "hello, ... pls return",
+      "true_issue": "unclear",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "unclear",
+      "confidence": 0.0,
+      "evidence_phrase": "",
+      "tokens": {
+        "input_tokens": 653,
+        "output_tokens": 19
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT004390",
+      "other_text": "beti ke liye liya th achhota pad gaya 🙏",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "achhota pad gaya",
+      "tokens": {
+        "input_tokens": 663,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003113",
+      "other_text": "pls print utar raha hai",
+      "true_issue": "quality",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "quality",
+      "confidence": 0.9,
+      "evidence_phrase": "utar raha hai",
+      "tokens": {
+        "input_tokens": 654,
+        "output_tokens": 20
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001183",
+      "other_text": "size se chota h pls return",
+      "true_issue": "too_small",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "size se chota h pls return",
+      "tokens": {
+        "input_tokens": 655,
+        "output_tokens": 25
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT001936",
+      "other_text": "size chota hai aur kapda bhi patla",
+      "true_issue": "too_small",
+      "true_secondary_issue": "quality",
+      "is_mixed": true,
+      "issue_type": "too_small",
+      "confidence": 0.9,
+      "evidence_phrase": "size chota hai",
+      "tokens": {
+        "input_tokens": 658,
+        "output_tokens": 22
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT005140",
+      "other_text": "late aaya aur packet bhi phata hua",
+      "true_issue": "damaged",
+      "true_secondary_issue": "delivery_late",
+      "is_mixed": true,
+      "issue_type": "damaged",
+      "confidence": 0.9,
+      "evidence_phrase": "packet bhi phata hua",
+      "tokens": {
+        "input_tokens": 657,
+        "output_tokens": 23
+      },
+      "attempts": 1,
+      "correct": true
+    },
+    {
+      "return_id": "RT003255",
+      "other_text": "hello, gift tha, unko pasand nahi aaya !!",
+      "true_issue": "changed_mind",
+      "true_secondary_issue": "",
+      "is_mixed": false,
+      "issue_type": "changed_mind",
+      "confidence": 1.0,
+      "evidence_phrase": "pasand nahi aaya",
+      "tokens": {
+        "input_tokens": 661,
+        "output_tokens": 24
+      },
+      "attempts": 1,
+      "correct": true
+    }
+  ]
+}
