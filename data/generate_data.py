@@ -323,11 +323,19 @@ def typo(s):
         return s[:i] + s[i + 1] + s[i] + s[i + 2:]
     return s[:i] + s[i] + s[i:]
 
+# "Didn't like it" is a real reason (changed mind), not a vague one.
+# Relabelled here rather than moved between lists, so every other row stays identical.
+RELABEL_AS_CHANGED_MIND = {"acha nahi laga", "अच्छा नहीं लगा"}
+LAST_BASE = None
+
+
 def make_comment(reason):
+    global LAST_BASE
     if reason in DEVANAGARI and random.random() < 0.05:
         base = random.choice(DEVANAGARI[reason])
     else:
         base = random.choice(TEXTS[reason])
+    LAST_BASE = base
     text = random.choice(FILLERS_PRE) + typo(base) + random.choice(FILLERS_POST)
     r = random.random()
     if r < 0.12:
@@ -402,6 +410,8 @@ for o in ORDERS:
                 reason = "unclear"
             else:
                 text = make_comment(reason)
+                if LAST_BASE in RELABEL_AS_CHANGED_MIND:
+                    reason = "changed_mind"
         else:
             dropdown = DROPDOWN[reason]
             text = ""
