@@ -1,4 +1,6 @@
 import os
+from concurrent.futures import ThreadPoolExecutor
+from difflib import SequenceMatcher
 from typing import Literal
 
 from dotenv import load_dotenv
@@ -180,7 +182,106 @@ def is_junk(text: str) -> bool:
     return len(t) < 3 or not any(ch.isalpha() for ch in t)
 
 
-def evidence_ok(text: str, phrase: str) -> bool:
-    """True if the quoted evidence really appears in the comment."""
+def evidence_ok(text: str, phrase: str, min_similarity: float = 0.8) -> bool:
+    """True if the quoted evidence appears in the comment, allowing for small typos.
+
+    The model often fixes a customer's typo when quoting ("pasad" -> "pasand"),
+    so an exact match is too strict. We accept the quote if some part of the
+    comment is at least `min_similarity` alike (0.8 = 80%).
+
+    Args:
+        text: the customer's comment.
+        phrase: the evidence the model quoted.
+        min_similarity: how alike the quote and the comment must be, 0 to 1.
+    """
     clean = lambda s: " ".join((s or "").lower().split())
-    return clean(phrase) != "" and clean(phrase) in clean(text)
+    quote, comment = clean(phrase), clean(text)
+    if not quote:
+        return False
+    if quote in comment:
+        return True
+    n = len(quote)
+    best = max(SequenceMatcher(None, quote, comment[i:i + n]).ratio()
+               for i in range(max(1, len(comment) - n + 1)))
+    return best >= min_similarity
+
+
+# ── 8. The full pipeline ────────────────────────────────────────────────────
+def run_pipeline(rows: list[dict], threshold: float, workers: int = 10) -> list[dict]:
+    """Give every return a reason: dropdown, junk check, cheap model, strong model.
+
+    Args:
+        rows: returns to classify, each with return_id, reason_dropdown, other_text.
+        threshold: below this confidence, a real reason gets a second opinion.
+        workers: how many comments go to a model at the same time.
+
+    Returns:
+        One result per return: return_id, issue_type, confidence,
+        evidence_phrase, evidence_found, source, model_name, tokens.
+    """
+    no_tokens = {"input_tokens": 0, "output_tokens": 0}
+    results = []   # returns that are finished
+    to_ai = []     # returns that need a model to read them
+
+    # Part 1: sort (plain code, free)
+    for row in rows:
+        if row["reason_dropdown"] != "Other":
+            results.append({
+                "return_id": row["return_id"],
+                "issue_type": DROPDOWN_TO_ISSUE[row["reason_dropdown"]],
+                "confidence": 1.0, "evidence_phrase": "",
+                "evidence_found": None,
+                "source": "dropdown", "model_name": None, "tokens": no_tokens,
+            })
+        elif is_junk(row["other_text"]):
+            results.append({
+                "return_id": row["return_id"],
+                "issue_type": "unclear",
+                "confidence": 1.0, "evidence_phrase": "",
+                "evidence_found": None,
+                "source": "gate", "model_name": None, "tokens": no_tokens,
+            })
+        else:
+            to_ai.append(row)
+
+    # Part 2: cheap model on the AI pile, in parallel
+    def ask(row: dict, model: str) -> dict:
+        """Classify one comment; a network error becomes 'failed' instead of stopping the run."""
+        try:
+            return classify_comment(row["other_text"], model)
+        except Exception as e:
+            return {"issue_type": "failed", "confidence": None, "evidence_phrase": None,
+                    "model_name": None, "error": str(e), "tokens": no_tokens}
+
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        answers = list(pool.map(lambda row: ask(row, "cheap"), to_ai))
+    sources = ["cheap_model"] * len(answers)
+
+    # Part 3a: second opinion for failed answers and shaky real reasons ("unclear" is trusted)
+    needs_second = [
+        i for i, a in enumerate(answers)
+        if a["issue_type"] == "failed"
+        or (a["issue_type"] != "unclear" and a["confidence"] < threshold)
+    ]
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        second = list(pool.map(lambda i: ask(to_ai[i], "strong"), needs_second))
+    for i, answer in zip(needs_second, second):
+        answer["tokens_cheap"] = answers[i]["tokens"]   # keep what the first try cost
+        answers[i] = answer
+        sources[i] = "strong_model"
+
+    # Part 3b: evidence check. Keep the reason; flag it if the quote isn't in the comment
+    for row, a, source in zip(to_ai, answers, sources):
+        has_reason = a["issue_type"] not in ("unclear", "failed")
+        results.append({
+            "return_id": row["return_id"],
+            "issue_type": a["issue_type"],
+            "confidence": a["confidence"],
+            "evidence_phrase": a["evidence_phrase"],
+            "evidence_found": evidence_ok(row["other_text"], a["evidence_phrase"]) if has_reason else None,
+            "source": source,
+            "model_name": a["model_name"],
+            "tokens": a["tokens"],
+            "tokens_cheap": a.get("tokens_cheap"),
+        })
+    return results

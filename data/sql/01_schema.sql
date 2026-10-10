@@ -114,6 +114,7 @@ CREATE TABLE classified_returns (
                                         -- wrong_item, changed_mind, delivery_late, unclear, failed
     confidence      NUMERIC(3,2),
     evidence_phrase TEXT,
+    evidence_found  BOOLEAN,            -- quote found in the comment? NULL when no quote is expected
     source          TEXT NOT NULL,      -- dropdown / cheap_model / strong_model / gate
     model_name      TEXT,
     classified_at   TIMESTAMPTZ DEFAULT now()
@@ -146,7 +147,7 @@ CREATE TABLE settings (
     value  TEXT NOT NULL
 );
 INSERT INTO settings (key, value) VALUES
-    ('confidence_threshold', '0.70'),
+    ('confidence_threshold', '0.75'),
     ('min_returns_per_hotspot', '20');
 
 -- ---------------------------------------------------------------------------
