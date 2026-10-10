@@ -22,6 +22,16 @@ ISSUE_TYPES = [
     "wrong_item", "changed_mind", "delivery_late", "unclear",
 ]
 
+# Dropdown label -> our reason name (no AI needed for these)
+DROPDOWN_TO_ISSUE = {
+    "Size too small": "too_small",
+    "Size too large": "too_large",
+    "Colour different from image": "colour_mismatch",
+    "Quality not as expected": "quality",
+    "Product damaged": "damaged",
+    "Wrong item received": "wrong_item",
+}
+
 
 # ── 3. The answer shape ─────────────────────────────────────────────────────
 class ReturnReason(BaseModel):
@@ -56,6 +66,20 @@ cheap_llm = ChatOpenAI(
     max_tokens=500,
 )
 
+STRONG_MODEL = os.getenv("STRONG_MODEL")
+if not STRONG_MODEL:
+    raise RuntimeError("STRONG_MODEL is not set.")
+
+strong_llm = ChatOpenAI(
+    model_name=STRONG_MODEL,
+    openai_api_key=API_KEY,
+    openai_api_base="https://openrouter.ai/api/v1",
+    temperature=0.0,
+    max_retries=1,
+    request_timeout=20,
+    max_tokens=500,
+)
+
 # ── 5. The prompt ───────────────────────────────────────────────────────────
 classify_prompt = ChatPromptTemplate.from_messages([
     ("system",
@@ -65,12 +89,12 @@ classify_prompt = ChatPromptTemplate.from_messages([
      "Reasons:\n"
      "- too_small: the right product, but it fits small or tight. e.g. 'size chota hai', 'bahut tight h'\n"
      "- too_large: the right product, but it fits big or loose. e.g. 'bahut loose hai', 'size bada hai'\n"
-     "- colour_mismatch: the colour or shade differs from the photo. e.g. 'rang alag hai', 'photo me maroon dikha'\n"
+     "- colour_mismatch: the colour or shade differs from the photo or from what was ordered. e.g. 'rang alag hai', 'photo me maroon dikha'\n"
      "- quality: poor fabric or making: thin cloth, bad stitching, fading or shrinking after wash. "
      "e.g. 'kapda patla hai', 'ek wash me rang chala gaya'\n"
      "- damaged: arrived broken or spoiled: hole, stain, torn, broken zip or button. "
      "e.g. 'phata hua aaya', 'daag hai'\n"
-     "- wrong_item: a different product, design or colour was sent than ordered. "
+     "- wrong_item: a different product or design was sent than ordered. "
      "e.g. 'galat product aaya', 'kurti mangayi thi top aaya'\n"
      "- changed_mind: nothing wrong with the item; the customer no longer wants it. "
      "e.g. 'pasand nahi aaya', 'ab zarurat nahi'\n"
@@ -82,7 +106,9 @@ classify_prompt = ChatPromptTemplate.from_messages([
      "3. 'pasand nahi aaya' is changed_mind. Only use unclear when no reason is stated at all.\n"
      "4. If two reasons are mentioned, pick the main one, usually the first.\n"
      "5. evidence_phrase must be copied word for word from the comment. Use an empty string for unclear.\n"
-     "6. Give a lower confidence when the comment is short, vague or could fit two reasons."),
+     "6. Give a lower confidence when the comment is short, vague or could fit two reasons.\n"
+     "7. A colour different from what was ordered or shown is colour_mismatch; "
+     "wrong_item is only for a different product or design."),
     ("human", "Return comment: {comment}"),
 ])
 
@@ -97,23 +123,33 @@ classifier = cheap_llm.with_structured_output(
 )
 classify_chain = classify_prompt | classifier
 
+strong_classifier = strong_llm.with_structured_output(
+    ReturnReason, method="function_calling", include_raw=True
+)
+strong_chain = classify_prompt | strong_classifier
 
-def classify_comment(text: str) -> dict:
-    """Ask the cheap model for the reason behind one return comment.
+
+def classify_comment(text: str, model: str = "cheap") -> dict:
+    """Ask a model (cheap by default) for the reason behind one return comment.
 
     Args:
         text: the customer's comment, exactly as written. Nothing else is sent.
+        model: the model to use, either "cheap" or "strong".
 
     Returns:
-        A dict with issue_type, confidence, evidence_phrase, tokens and attempts.
+        A dict with issue_type, confidence, evidence_phrase, model_name,
+        tokens and attempts.
         If the model answers in the wrong shape twice, issue_type is "failed"
         and "error" says why.
     """
+    chain = strong_chain if model == "strong" else classify_chain
+    model_name = STRONG_MODEL if model == "strong" else CHEAP_MODEL
+
     tokens = {"input_tokens": 0, "output_tokens": 0}
     last_error = None
 
     for attempt in (1, 2):
-        out = classify_chain.invoke({"comment": text})
+        out = chain.invoke({"comment": text})
 
         # Count tokens on every try, failed ones included: we pay for them too
         usage = out["raw"].usage_metadata or {}
@@ -121,7 +157,8 @@ def classify_comment(text: str) -> dict:
         tokens["output_tokens"] += usage.get("output_tokens", 0)
 
         if out["parsed"] is not None:
-            return {**out["parsed"].model_dump(), "tokens": tokens, "attempts": attempt}
+            return {**out["parsed"].model_dump(), "model_name": model_name,
+                    "tokens": tokens, "attempts": attempt}
 
         last_error = out["parsing_error"]
 
@@ -129,7 +166,21 @@ def classify_comment(text: str) -> dict:
         "issue_type": "failed",
         "confidence": None,
         "evidence_phrase": None,
+        "model_name": model_name,
         "error": str(last_error),
         "tokens": tokens,
         "attempts": 2,
     }
+
+
+# ── 7. Helpers (plain code, no AI) ──────────────────────────────────────────
+def is_junk(text: str) -> bool:
+    """True if the comment has nothing to read: under 3 characters or no letters."""
+    t = (text or "").strip()
+    return len(t) < 3 or not any(ch.isalpha() for ch in t)
+
+
+def evidence_ok(text: str, phrase: str) -> bool:
+    """True if the quoted evidence really appears in the comment."""
+    clean = lambda s: " ".join((s or "").lower().split())
+    return clean(phrase) != "" and clean(phrase) in clean(text)
