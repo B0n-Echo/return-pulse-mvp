@@ -142,3 +142,71 @@ def save_classified(results: list[dict]) -> int:
             rows,
         )
     return len(rows)
+
+
+# ── Counting and dashboard queries (rp-05) ─────────────────────────────────
+# Each function below is a shell: the route works, but answers
+# "not built yet" until its TODO is filled in.
+
+
+def refresh_counts() -> int:
+    """Recount everything into weekly_issue_counts (run once after each pipeline run).
+
+    Returns:
+        How many count rows were written.
+    """
+    # TODO (you): empty weekly_issue_counts, then fill it from classified_returns
+    #             joined to returns_enriched, grouped by week, reason, vendor,
+    #             product type, size and city.
+    raise NotImplementedError("refresh_counts")
+
+
+def get_summary() -> dict:
+    """Headline numbers: total returns, classified, and the share with a known reason."""
+    # TODO (you)
+    raise NotImplementedError("get_summary")
+
+
+def get_drivers() -> list[dict]:
+    """Each reason's number of returns and its share of all returns."""
+    # TODO (you)
+    raise NotImplementedError("get_drivers")
+
+
+def get_hotspots(min_returns: int) -> list[dict]:
+    """Vendor + product type + size groups where a reason is well above its normal share.
+
+    Args:
+        min_returns: ignore groups with fewer returns than this (too few to trust).
+    """
+    # TODO (you): the Vendor B rule: share in the group vs normal share (lift)
+    raise NotImplementedError("get_hotspots")
+
+
+def get_locations(min_returns: int) -> list[dict]:
+    """Cities where a reason is well above its normal share.
+
+    Args:
+        min_returns: ignore cities with fewer returns than this.
+    """
+    # TODO (you): same rule as hotspots, grouped by city
+    raise NotImplementedError("get_locations")
+
+
+def get_trend() -> list[dict]:
+    """Number of returns per reason per week, for the trend chart."""
+    # TODO (you)
+    raise NotImplementedError("get_trend")
+
+
+def get_hotspot_comments(vendor_id: str, subcategory: str, size: str, issue_type: str) -> list[dict]:
+    """The customer comments behind one hotspot, for the drill-down."""
+    # TODO (you)
+    raise NotImplementedError("get_hotspot_comments")
+
+
+def save_correction(return_id: str, is_correct: bool,
+                    corrected_issue: str | None, note: str | None) -> dict:
+    """Save Neha's check on one label: right (✓) or wrong (✗), with the right reason."""
+    # TODO (you)
+    raise NotImplementedError("save_correction")
