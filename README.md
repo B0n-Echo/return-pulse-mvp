@@ -16,6 +16,7 @@ The report shows accuracy per reason, cost, every wrong answer, and the limits o
 | [Discovery note](docs/discovery-note.md) | The problem we chose, the evidence, and why it ranks first |
 | [Classifier test report](reports/classifier-eval.md) | How well the AI reads return comments, and what it costs |
 | [Sample data](data/README.md) | The synthetic dataset and how to load it |
+| [Recommendations](docs/recommendations.md) | Improvements we suggest, with their cost, for Dhaga to decide on |
 
 ## Run the app
 
