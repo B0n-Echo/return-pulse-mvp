@@ -14,7 +14,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))  # so we can import rp_data and rp_workflow
 
-from rp_data import get_conn, get_returns_to_classify, get_setting, save_classified  # noqa: E402
+from rp_data import (  # noqa: E402
+    get_conn, get_returns_to_classify, get_setting, refresh_counts, save_classified,
+)
 from rp_workflow import run_pipeline  # noqa: E402
 
 # USD per 1M tokens (input, output). Check OpenRouter's current prices.
@@ -59,6 +61,7 @@ def main() -> None:
     start = time.time()
     results = run_pipeline(rows, threshold)
     saved = save_classified(results)
+    count_rows = refresh_counts()   # recount once, for the dashboard
     seconds = time.time() - start
 
     by_source = Counter(r["source"] for r in results)
@@ -91,6 +94,7 @@ def main() -> None:
     print(f"Cost:           cheap ≈ ₹{cheap_cost:.2f} · strong ≈ ₹{strong_cost:.2f} · "
           f"total ≈ ₹{cheap_cost + strong_cost:.2f}")
     print(f"Still left:     {left} returns")
+    print(f"Counts table:   {count_rows} rows refreshed for the dashboard")
 
 
 if __name__ == "__main__":
