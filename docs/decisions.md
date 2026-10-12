@@ -101,3 +101,6 @@ How big is the problem? What's driving it? Where exactly (hotspots, with the com
 
 **23. Build the screens before the backend, against agreed data shapes.**
 We agreed what each route returns first, then built the screens against sample files of that shape. When a part of the server isn't ready, its section shows the sample data and is clearly labelled "Sample", so nobody mistakes it for real numbers.
+
+**24. A hotspot must be at least 1.5× normal, with at least 5 returns giving that reason.**
+"Well above normal" needed a number, so we started at 1.5×. Requiring 5 returns with the reason stops a group of 20 with just 2 odd returns from looking like a crisis: the same "2 out of 2 proves nothing" problem, one level down. Both are starting values, to be tuned once real results are on the dashboard.

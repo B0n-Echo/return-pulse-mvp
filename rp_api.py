@@ -1,8 +1,9 @@
+import logging
 from pathlib import Path
 
 from typing import Optional
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -13,6 +14,8 @@ from rp_data import (
 )
 
 FRONTEND_DIR = Path(__file__).resolve().parent / "frontend"
+
+log = logging.getLogger("return_pulse")
 
 app = FastAPI(title="Return Pulse")
 
@@ -27,8 +30,13 @@ def health():
     """
     try:
         return {"status": "ok", "counts": get_counts()}
-    except Exception as e:
-        return JSONResponse(status_code=503, content={"status": "db_error", "detail": str(e)})
+    except Exception:
+        # Full technical error goes to the server log; the screen gets one plain sentence
+        log.exception("Health check: database unreachable")
+        return JSONResponse(status_code=503, content={
+            "status": "db_error",
+            "detail": "Can't reach the database right now. The data will appear once it's back.",
+        })
 
 
 @app.exception_handler(NotImplementedError)
@@ -89,7 +97,10 @@ class CorrectionRequest(BaseModel):
 @app.post("/api/corrections")
 def corrections(body: CorrectionRequest):
     """Save a ✓ or ✗ on one label."""
-    return save_correction(body.return_id, body.is_correct, body.corrected_issue, body.note)
+    try:
+        return save_correction(body.return_id, body.is_correct, body.corrected_issue, body.note)
+    except LookupError as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
 
 app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")

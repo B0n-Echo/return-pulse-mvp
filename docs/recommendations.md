@@ -17,3 +17,13 @@ Improvements we found while building Return Pulse. Each one costs money or chang
 **What it costs.** About 140 extra calls per full run of today's volume, roughly ₹20.
 
 **What it gives you.** A measured answer to "how do we know it's right?", every week, instead of trusting the model's own confidence.
+
+---
+
+## 2. Decide which reasons count as vendor hotspots
+
+**What we found.** The hotspot list includes groups like "Hawa Mahal Hand Block, kurti, size M: changed mind, 2.9× normal". "Changed mind" and "delivery late" aren't usually something a vendor can fix, so they may distract from fixable problems like fit, colour and quality.
+
+**What we recommend.** Agree with the Category team which reasons belong in vendor hotspots. One option is to show only product-related reasons (too small, too large, colour mismatch, quality, damaged), and keep delivery issues in the Locations view.
+
+**What it costs.** Nothing; it's a one-line rule change.
