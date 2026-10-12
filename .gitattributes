@@ -1,0 +1,2 @@
+# Force GitHub Linguist to treat SQL files correctly or exclude them from stats
+data/*.sql linguist-vendored
