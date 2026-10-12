@@ -1,0 +1,29 @@
+[
+  {
+    "ship_city": "Guwahati",
+    "issue_type": "damaged",
+    "issue_returns": 26,
+    "group_returns": 120,
+    "share": 0.22,
+    "normal_share": 0.06,
+    "times_normal": 3.6
+  },
+  {
+    "ship_city": "Agartala",
+    "issue_type": "delivery_late",
+    "issue_returns": 9,
+    "group_returns": 58,
+    "share": 0.16,
+    "normal_share": 0.03,
+    "times_normal": 5.1
+  },
+  {
+    "ship_city": "Lucknow",
+    "issue_type": "too_small",
+    "issue_returns": 88,
+    "group_returns": 360,
+    "share": 0.24,
+    "normal_share": 0.24,
+    "times_normal": 1.0
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "return_id": "RT000101",
+    "other_text": "size L bahut tight hai, XL lena padega",
+    "issue_type": "too_small",
+    "confidence": 0.9,
+    "evidence_phrase": "bahut tight hai",
+    "evidence_found": true,
+    "source": "cheap_model"
+  },
+  {
+    "return_id": "RT000102",
+    "other_text": "chhota aa gaya, size chart galat hai",
+    "issue_type": "too_small",
+    "confidence": 0.9,
+    "evidence_phrase": "chhota aa gaya",
+    "evidence_found": true,
+    "source": "cheap_model"
+  },
+  {
+    "return_id": "RT000103",
+    "other_text": "fitting thik nahi hai",
+    "issue_type": "too_small",
+    "confidence": 0.7,
+    "evidence_phrase": "fitting tight",
+    "evidence_found": false,
+    "source": "strong_model"
+  }
+]

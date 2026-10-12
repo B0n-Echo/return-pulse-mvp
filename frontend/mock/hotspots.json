@@ -1,0 +1,38 @@
+[
+  {
+    "vendor_id": "V03",
+    "vendor_name": "Noyyal Knits",
+    "subcategory": "Dress",
+    "size": "L",
+    "issue_type": "too_small",
+    "issue_returns": 60,
+    "group_returns": 100,
+    "share": 0.6,
+    "normal_share": 0.1,
+    "times_normal": 6.0
+  },
+  {
+    "vendor_id": "V30",
+    "vendor_name": "Kumaran Clothing",
+    "subcategory": "Kurti",
+    "size": "M",
+    "issue_type": "colour_mismatch",
+    "issue_returns": 21,
+    "group_returns": 48,
+    "share": 0.44,
+    "normal_share": 0.12,
+    "times_normal": 3.6
+  },
+  {
+    "vendor_id": "V21",
+    "vendor_name": "Leheriya Lane",
+    "subcategory": "Top",
+    "size": "S",
+    "issue_type": "quality",
+    "issue_returns": 14,
+    "group_returns": 35,
+    "share": 0.4,
+    "normal_share": 0.12,
+    "times_normal": 3.3
+  }
+]
