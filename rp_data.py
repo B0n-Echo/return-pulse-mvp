@@ -145,6 +145,40 @@ def save_classified(results: list[dict]) -> int:
 
 
 # ── Counting and dashboard queries (rp-05) ─────────────────────────────────
+# Hotspot rule: a reason's share in a group is at least MIN_TIMES_NORMAL times its
+# normal share, the group has at least min_returns returns, and at least
+# MIN_ISSUE_RETURNS of them have that reason.
+MIN_TIMES_NORMAL = 1.5
+MIN_ISSUE_RETURNS = 5
+
+_HOTSPOT_SQL = """
+            WITH normal AS (            -- each reason's share across ALL returns
+                SELECT issue_type,
+                       sum(return_count)::numeric / sum(sum(return_count)) OVER () AS normal_share
+                FROM weekly_issue_counts
+                GROUP BY issue_type
+            ),
+            grp AS (                    -- each reason's count inside each group
+                SELECT {cols}, issue_type, sum(return_count) AS issue_returns,
+                       sum(sum(return_count)) OVER (PARTITION BY {cols}) AS group_returns
+                FROM weekly_issue_counts
+                GROUP BY {cols}, issue_type
+            )
+            SELECT {select_cols}, g.issue_type,
+                   g.issue_returns::int, g.group_returns::int,
+                   round(g.issue_returns / g.group_returns, 3)::float AS share,
+                   round(n.normal_share, 3)::float AS normal_share,
+                   round((g.issue_returns / g.group_returns) / n.normal_share, 1)::float AS times_normal
+            FROM grp g
+            JOIN normal n USING (issue_type)
+            {extra_join}
+            WHERE g.group_returns >= %(min_returns)s           -- enough returns to trust
+              AND g.issue_returns >= %(min_issue)s             -- not just one or two odd returns
+              AND g.issue_type NOT IN ('unclear', 'failed')    -- only real, fixable reasons
+              AND (g.issue_returns / g.group_returns) >= n.normal_share * %(min_times)s
+            ORDER BY times_normal DESC, g.issue_returns DESC
+            LIMIT 25
+"""
 # Each function below is a shell: the route works, but answers
 # "not built yet" until its TODO is filled in.
 
@@ -155,22 +189,63 @@ def refresh_counts() -> int:
     Returns:
         How many count rows were written.
     """
-    # TODO (you): empty weekly_issue_counts, then fill it from classified_returns
-    #             joined to returns_enriched, grouped by week, reason, vendor,
-    #             product type, size and city.
-    raise NotImplementedError("refresh_counts")
+    with get_conn() as conn, conn.cursor() as cur:
+        cur.execute("DELETE FROM weekly_issue_counts")
+        cur.execute(
+            """
+            INSERT INTO weekly_issue_counts
+                (week_start, issue_type, vendor_id, subcategory, size, ship_city, return_count)
+            SELECT e.week_start, c.issue_type, e.vendor_id, e.subcategory, e.size, e.ship_city,
+                   count(*)
+            FROM classified_returns c
+            JOIN returns_enriched e USING (return_id)
+            GROUP BY e.week_start, c.issue_type, e.vendor_id, e.subcategory, e.size, e.ship_city
+            """
+        )
+        return cur.rowcount
 
 
 def get_summary() -> dict:
     """Headline numbers: total returns, classified, and the share with a known reason."""
-    # TODO (you)
-    raise NotImplementedError("get_summary")
+    with get_conn() as conn, conn.cursor() as cur:
+        cur.execute("SELECT count(*) FROM returns")
+        total = cur.fetchone()[0]
+        cur.execute(
+            """
+            SELECT count(*),
+                   count(*) FILTER (WHERE issue_type = 'unclear'),
+                   count(*) FILTER (WHERE issue_type = 'failed'),
+                   count(*) FILTER (WHERE evidence_found = false)
+            FROM classified_returns
+            """
+        )
+        classified, unclear, failed, flags = cur.fetchone()
+    known = classified - unclear - failed
+    return {
+        "total_returns": total,
+        "classified": classified,
+        "known_reason": known,
+        "known_share": round(known / classified, 3) if classified else 0.0,
+        "unclear": unclear,
+        "failed": failed,
+        "evidence_flags": flags,
+    }
 
 
 def get_drivers() -> list[dict]:
     """Each reason's number of returns and its share of all returns."""
-    # TODO (you)
-    raise NotImplementedError("get_drivers")
+    with get_conn() as conn, conn.cursor(row_factory=psycopg.rows.dict_row) as cur:
+        cur.execute(
+            """
+            SELECT issue_type,
+                   count(*) AS returns,
+                   round(count(*)::numeric / sum(count(*)) OVER (), 3)::float AS share
+            FROM classified_returns
+            GROUP BY issue_type
+            ORDER BY returns DESC
+            """
+        )
+        return cur.fetchall()
 
 
 def get_hotspots(min_returns: int) -> list[dict]:
@@ -179,8 +254,15 @@ def get_hotspots(min_returns: int) -> list[dict]:
     Args:
         min_returns: ignore groups with fewer returns than this (too few to trust).
     """
-    # TODO (you): the Vendor B rule: share in the group vs normal share (lift)
-    raise NotImplementedError("get_hotspots")
+    sql = _HOTSPOT_SQL.format(
+        cols="vendor_id, subcategory, size",
+        select_cols="g.vendor_id, v.vendor_name, g.subcategory, g.size",
+        extra_join="JOIN vendors v ON v.vendor_id = g.vendor_id",
+    )
+    params = {"min_returns": min_returns, "min_issue": MIN_ISSUE_RETURNS, "min_times": MIN_TIMES_NORMAL}
+    with get_conn() as conn, conn.cursor(row_factory=psycopg.rows.dict_row) as cur:
+        cur.execute(sql, params)
+        return cur.fetchall()
 
 
 def get_locations(min_returns: int) -> list[dict]:
@@ -189,24 +271,71 @@ def get_locations(min_returns: int) -> list[dict]:
     Args:
         min_returns: ignore cities with fewer returns than this.
     """
-    # TODO (you): same rule as hotspots, grouped by city
-    raise NotImplementedError("get_locations")
+    sql = _HOTSPOT_SQL.format(cols="ship_city", select_cols="g.ship_city", extra_join="")
+    params = {"min_returns": min_returns, "min_issue": MIN_ISSUE_RETURNS, "min_times": MIN_TIMES_NORMAL}
+    with get_conn() as conn, conn.cursor(row_factory=psycopg.rows.dict_row) as cur:
+        cur.execute(sql, params)
+        return cur.fetchall()
 
 
 def get_trend() -> list[dict]:
     """Number of returns per reason per week, for the trend chart."""
-    # TODO (you)
-    raise NotImplementedError("get_trend")
+    with get_conn() as conn, conn.cursor(row_factory=psycopg.rows.dict_row) as cur:
+        cur.execute(
+            """
+            SELECT week_start, issue_type, sum(return_count)::int AS returns
+            FROM weekly_issue_counts
+            GROUP BY week_start, issue_type
+            ORDER BY week_start, issue_type
+            """
+        )
+        return cur.fetchall()
 
 
 def get_hotspot_comments(vendor_id: str, subcategory: str, size: str, issue_type: str) -> list[dict]:
-    """The customer comments behind one hotspot, for the drill-down."""
-    # TODO (you)
-    raise NotImplementedError("get_hotspot_comments")
+    """The customer comments behind one hotspot, for the drill-down.
+
+    Only AI-read comments are listed (dropdown returns have no comment to show).
+    """
+    with get_conn() as conn, conn.cursor(row_factory=psycopg.rows.dict_row) as cur:
+        cur.execute(
+            """
+            SELECT c.return_id, e.other_text, c.issue_type, c.confidence::float,
+                   c.evidence_phrase, c.evidence_found, c.source
+            FROM classified_returns c
+            JOIN returns_enriched e USING (return_id)
+            WHERE e.vendor_id = %s AND e.subcategory = %s AND e.size = %s
+              AND c.issue_type = %s
+              AND c.source IN ('cheap_model', 'strong_model')
+            ORDER BY c.evidence_found NULLS FIRST, c.confidence, c.return_id
+            LIMIT 50
+            """,
+            (vendor_id, subcategory, size, issue_type),
+        )
+        return cur.fetchall()
 
 
 def save_correction(return_id: str, is_correct: bool,
                     corrected_issue: str | None, note: str | None) -> dict:
-    """Save Neha's check on one label: right (✓) or wrong (✗), with the right reason."""
-    # TODO (you)
-    raise NotImplementedError("save_correction")
+    """Save Neha's check on one label: right (✓) or wrong (✗), with the right reason.
+
+    Raises:
+        LookupError: if the return has no classified result to correct.
+    """
+    with get_conn() as conn, conn.cursor() as cur:
+        cur.execute("SELECT issue_type FROM classified_returns WHERE return_id = %s", (return_id,))
+        row = cur.fetchone()
+        if row is None:
+            raise LookupError(f"Return {return_id} has no classified result.")
+        cur.execute(
+            """
+            INSERT INTO corrections (return_id, model_issue_type, is_correct, corrected_issue, note)
+            VALUES (%s, %s, %s, %s, %s)
+            RETURNING id
+            """,
+            (return_id, row[0], is_correct, corrected_issue, note),
+        )
+        correction_id = cur.fetchone()[0]
+    return {"saved": True, "id": correction_id, "return_id": return_id,
+            "model_issue_type": row[0], "is_correct": is_correct,
+            "corrected_issue": corrected_issue}
