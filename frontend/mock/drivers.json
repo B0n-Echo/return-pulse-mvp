@@ -1,0 +1,52 @@
+[
+  {
+    "issue_type": "too_small",
+    "returns": 1580,
+    "share": 0.24
+  },
+  {
+    "issue_type": "changed_mind",
+    "returns": 1010,
+    "share": 0.154
+  },
+  {
+    "issue_type": "colour_mismatch",
+    "returns": 820,
+    "share": 0.125
+  },
+  {
+    "issue_type": "quality",
+    "returns": 790,
+    "share": 0.12
+  },
+  {
+    "issue_type": "too_large",
+    "returns": 760,
+    "share": 0.116
+  },
+  {
+    "issue_type": "unclear",
+    "returns": 672,
+    "share": 0.102
+  },
+  {
+    "issue_type": "damaged",
+    "returns": 420,
+    "share": 0.064
+  },
+  {
+    "issue_type": "wrong_item",
+    "returns": 310,
+    "share": 0.047
+  },
+  {
+    "issue_type": "delivery_late",
+    "returns": 200,
+    "share": 0.03
+  },
+  {
+    "issue_type": "failed",
+    "returns": 9,
+    "share": 0.001
+  }
+]

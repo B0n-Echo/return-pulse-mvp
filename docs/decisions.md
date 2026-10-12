@@ -95,3 +95,9 @@ Running the pipeline spends money, so it stays a deliberate script run, not a cl
 
 **21. Fail visibly, everywhere.**
 A red error when the database is down, "not built yet" for unfinished routes, and "unclear", "failed" and evidence flags shown on screen. A visible gap is better than a silent wrong answer.
+
+**22. Lay out the dashboard in the order Neha asks her questions.**
+How big is the problem? What's driving it? Where exactly (hotspots, with the comments behind them)? Which cities? Is it getting better? Big picture first, then problems, then detail.
+
+**23. Build the screens before the backend, against agreed data shapes.**
+We agreed what each route returns first, then built the screens against sample files of that shape. When a part of the server isn't ready, its section shows the sample data and is clearly labelled "Sample", so nobody mistakes it for real numbers.

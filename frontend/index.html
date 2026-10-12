@@ -7,11 +7,82 @@
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <main>
-    <h1>Return Pulse</h1>
-    <p class="lede">Why products come back, and where: return reasons by SKU, vendor, size and city.</p>
-    <div id="status" class="status" role="status">Checking the database…</div>
+  <header class="top">
+    <div class="wrap">
+      <h1>Return Pulse</h1>
+      <p class="lede">Why products come back, and where.</p>
+      <div id="status" class="status" role="status">Checking the database…</div>
+      <div id="sample-banner" class="banner" hidden>
+        Some sections are showing <b>sample data</b> because their part of the server isn't built yet.
+        Those sections are marked "Sample".
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- 1. How big is the picture? -->
+    <section id="summary" class="card">
+      <h2>The big picture <span class="tag" hidden>Sample</span></h2>
+      <div class="tiles" id="summary-tiles"></div>
+    </section>
+
+    <!-- 2. What is driving returns? -->
+    <section id="drivers" class="card">
+      <h2>What's driving returns <span class="tag" hidden>Sample</span></h2>
+      <p class="hint">Share of all returns, by reason.</p>
+      <div id="drivers-bars" class="bars"></div>
+    </section>
+
+    <!-- 3. Where exactly? -->
+    <section id="hotspots" class="card">
+      <h2>Hotspots: what to fix first <span class="tag" hidden>Sample</span></h2>
+      <p class="hint">A product group whose share of a reason is well above normal, with at least 20 returns. Click a row to see the customer comments behind it.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>Vendor</th><th>Product</th><th>Size</th><th>Reason</th>
+            <th class="num">Returns</th><th class="num">Share</th><th class="num">Normal</th><th class="num">vs normal</th>
+          </tr></thead>
+          <tbody id="hotspots-body"></tbody>
+        </table>
+      </div>
+      <div id="comments" class="comments" hidden>
+        <div class="comments-head">
+          <h3 id="comments-title">Comments</h3>
+          <button id="comments-close" class="link">Close</button>
+        </div>
+        <p class="hint">Check each label: ✓ if the reason is right, ✗ if it's wrong.</p>
+        <ul id="comments-list"></ul>
+      </div>
+    </section>
+
+    <!-- 4. Which cities? -->
+    <section id="locations" class="card">
+      <h2>Locations <span class="tag" hidden>Sample</span></h2>
+      <p class="hint">Cities where a reason is above its normal share.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>City</th><th>Reason</th><th class="num">Returns</th><th class="num">Share</th>
+            <th class="num">Normal</th><th class="num">vs normal</th>
+          </tr></thead>
+          <tbody id="locations-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. Getting better? -->
+    <section id="trend" class="card">
+      <h2>Trend <span class="tag" hidden>Sample</span></h2>
+      <div class="trend-controls">
+        <label for="trend-reason">Reason</label>
+        <select id="trend-reason"></select>
+        <span class="legend"><i class="sw now"></i>Last 52 weeks <i class="sw prev"></i>The 52 weeks before</span>
+      </div>
+      <svg id="trend-chart" viewBox="0 0 720 220" role="img" aria-label="Returns per week"></svg>
+    </section>
   </main>
+
   <script src="/static/app.js"></script>
 </body>
 </html>

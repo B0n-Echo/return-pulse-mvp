@@ -1,0 +1,9 @@
+{
+  "total_returns": 6571,
+  "classified": 6571,
+  "known_reason": 5890,
+  "known_share": 0.896,
+  "unclear": 672,
+  "failed": 9,
+  "evidence_flags": 14
+}

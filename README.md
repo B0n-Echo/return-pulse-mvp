@@ -40,7 +40,7 @@ Each step is either plain code or a model call, chosen on purpose:
 | Second opinion on failed or unsure answers | Strong model (gpt-4o) | Pay for the expensive model only where it can help |
 | Check that the quoted evidence is really in the comment | Code | Catches made-up reasons; flags them instead of hiding them |
 | Count reasons by vendor, product, size, city and week | Code (SQL) | Arithmetic is a job for a database, not a model |
-| Dashboard: drivers, hotspots, locations, trend, drill-down | Code | *In progress* |
+| Dashboard: drivers, hotspots, locations, trend, drill-down with ✓ / ✗ | Code | Built; reads sample data until the API logic is filled in |
 
 ## Results so far
 
@@ -69,7 +69,7 @@ Each step is either plain code or a model call, chosen on purpose:
 | AI classifier + accuracy test | Done |
 | Classification pipeline | Built; tested on a 50-return sample |
 | Counting and API routes | Routes in place; logic in progress |
-| Dashboard | In progress |
+| Dashboard | Built; showing labelled sample data until the API logic is done |
 | Deployment | Not started |
 
 ## Project documents
