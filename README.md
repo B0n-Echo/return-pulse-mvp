@@ -2,6 +2,8 @@
 
 **An AI tool that reads Hinglish return comments and shows a fashion brand why products come back, and where.**
 
+**Live demo:** https://return-pulse-mvp.onrender.com (free hosting: the first visit after a quiet spell takes about a minute to wake up)
+
 Built as a forward-deployed engineering (FDE) engagement during FDE Academy's Tech Track. The client, Dhaga & Co., is a composite D2C fashion brand: realistic numbers and people, but not a real company.
 
 ---
@@ -40,7 +42,7 @@ Each step is either plain code or a model call, chosen on purpose:
 | Second opinion on failed or unsure answers | Strong model (gpt-4o) | Pay for the expensive model only where it can help |
 | Check that the quoted evidence is really in the comment | Code | Catches made-up reasons; flags them instead of hiding them |
 | Count reasons by vendor, product, size, city and week | Code (SQL) | Arithmetic is a job for a database, not a model |
-| Dashboard: drivers, hotspots, locations, trend, drill-down with ✓ / ✗ | Code | Built; reads sample data until the API logic is filled in |
+| Dashboard: drivers, hotspots, locations, trend, drill-down with ✓ / ✗ | Code | Shows only stored results; opening it never costs anything |
 
 ## Results so far
 
@@ -49,7 +51,7 @@ Each step is either plain code or a model call, chosen on purpose:
 | Classifier accuracy (200 comments) | **94%** · [full report](reports/classifier-eval.md) |
 | Real reasons wrongly called "unclear" | 3% |
 | Returns settled without AI | 57% |
-| Sample pipeline run (50 returns) | 3 seconds, ₹0.22, 0 failures |
+| Full pipeline run (6,571 returns) | 5 minutes, ₹32, 0 failures, 19 second opinions, 4 evidence flags |
 | Cost at the client's volume | ≈ ₹65 a week |
 
 **What we're honest about:** these tests ran on synthetic comments we generated to match Dhaga's data, so real-world accuracy is likely lower. The model also reports ~90% confidence even when it's wrong, so its confidence can't be trusted alone. Our proposed fix is in the [recommendations](docs/recommendations.md).
@@ -67,10 +69,10 @@ Each step is either plain code or a model call, chosen on purpose:
 |---|---|
 | Discovery and problem ranking | Done |
 | AI classifier + accuracy test | Done |
-| Classification pipeline | Built; tested on a 50-return sample |
-| Counting and API routes | Routes in place; logic in progress |
-| Dashboard | Built; showing labelled sample data until the API logic is done |
-| Deployment | Not started |
+| Classification pipeline | Done; all 6,571 returns classified in 5 minutes for ₹32 |
+| Counting and API routes | Done |
+| Dashboard | Done |
+| Deployment | Live on Render, data on Neon Postgres |
 
 ## Project documents
 

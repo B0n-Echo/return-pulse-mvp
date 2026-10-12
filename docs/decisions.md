@@ -104,3 +104,8 @@ We agreed what each route returns first, then built the screens against sample f
 
 **24. A hotspot must be at least 1.5× normal, with at least 5 returns giving that reason.**
 "Well above normal" needed a number, so we started at 1.5×. Requiring 5 returns with the reason stops a group of 20 with just 2 odd returns from looking like a crisis: the same "2 out of 2 proves nothing" problem, one level down. Both are starting values, to be tuned once real results are on the dashboard.
+
+## Deployment
+
+**25. The live site only reads; the AI never runs on the server.**
+The dashboard reads stored results, and the pipeline runs separately, standing in for the nightly job Dhaga's team would schedule. So the server holds no AI key, and nobody who opens the link can spend money. Hosting: the app on Render, the database on Neon Postgres. Both are free tiers chosen so many small projects can live side by side.
