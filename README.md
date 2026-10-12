@@ -4,6 +4,8 @@
 
 **Live demo:** https://return-pulse-mvp.onrender.com (free hosting: the first visit after a quiet spell takes about a minute to wake up)
 
+![Return Pulse dashboard: headline numbers, what's driving returns, and hotspots](docs/images/dashboard.webp)
+
 Built as a forward-deployed engineering (FDE) engagement during FDE Academy's Tech Track. The client, Dhaga & Co., is a composite D2C fashion brand: realistic numbers and people, but not a real company.
 
 ---
@@ -80,6 +82,7 @@ Each step is either plain code or a model call, chosen on purpose:
 |---|---|
 | [How we worked as FDEs](docs/decisions.md) | The judgment calls behind the project, and the FDE principles they follow |
 | [Discovery note](docs/discovery-note.md) | The problem we chose, the evidence, and why it ranks first |
+| [Build note](docs/build-note.md) | Code vs model for every step, why each pattern, the cost line, and what broke |
 | [Classifier test report](reports/classifier-eval.md) | How well the AI reads return comments, and what it costs |
 | [Recommendations](docs/recommendations.md) | Improvements we suggest, with their cost, for the client to decide on |
 | [Sample data](data/README.md) | The synthetic dataset and how to load it |
